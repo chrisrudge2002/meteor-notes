@@ -3,14 +3,22 @@ import { createContainer } from 'meteor/react-meteor-data';
 import React from 'react';
 
 import NoteListHeader from './NoteListHeader';
+import NoteListEmptyItem from './NoteListEmptyItem';
 import NoteListItem from './NoteListItem';
 import { Notes } from '../api/notes';
 
 export const NoteList = props => {
+	const renderList = () => {
+		if (props.notes.length === 0) {
+			return <NoteListEmptyItem/>;
+		} else {
+			return props.notes.map(note => <NoteListItem key={note._id} note={note}/>);
+		}
+	};
 	return (
 		<div>
 			<NoteListHeader/>
-			{ props.notes.map(note => <NoteListItem key={note._id} note={note}/>) }
+			{ renderList() }
 			NoteList { props.notes.length }
 		</div>
 	);
