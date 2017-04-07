@@ -34,6 +34,7 @@ export const routes = (
 	<Router history={browserHistory}>
 		<Route path="/" component={Login} onEnter={onEnterPublicPage}/>
 		<Route path="/dashboard" component={Dashboard} onEnter={onEnterPrivatePage}/>
+		<Route path="/dashboard/:id" component={Dashboard} onEnter={onEnterPrivatePage}/>
 		<Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
 		<Route path="*" component={NotFound}/>
 	</Router>
