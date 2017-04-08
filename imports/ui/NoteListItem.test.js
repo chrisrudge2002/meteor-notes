@@ -10,7 +10,7 @@ if (Meteor.isClient) {
 	describe('NoteListItem', function () {
 		let Session;
 
-		beforeEach(() => {
+		beforeEach(function () {
 			Session = {
 				set: expect.createSpy()
 			};
